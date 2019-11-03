@@ -1,26 +1,12 @@
-use rawsock::open_best_library;
-use std::error::Error;
+trait Foo {}
 
-fn boxed_string_result() -> Result<Box<String>, Box<dyn Error>> {
+fn give_foo() -> Result<Box<dyn Foo>, ()> {
     unimplemented!()
 }
 
-fn string_result() -> Result<String, Box<dyn Error>> {
-    unimplemented!()
-}
-
-fn main() -> Result<(), Box<dyn Error>> {
-    let _lib = open_best_library();
-    let _lib = open_best_library().unwrap();
-    let _lib = open_best_library()?;
-
-    let _str = boxed_string_result();
-    let _str = boxed_string_result().unwrap();
-    let _str = boxed_string_result()?;
-
-    let _bstr = string_result();
-    let _bstr = string_result().unwrap();
-    let _bstr = string_result()?;
-
+fn main() -> Result<(), ()> {
+    let _foo = give_foo();
+    let _foo = give_foo().unwrap();
+    let _foo = give_foo()?;
     Ok(())
 }
